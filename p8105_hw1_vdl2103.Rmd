@@ -117,4 +117,7 @@ plot_logical
 plot_numeric
 plot_logical
 
+ggsave("plot_logical.png")
+
+
 ```
