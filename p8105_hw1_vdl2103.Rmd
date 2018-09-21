@@ -1,0 +1,40 @@
+---
+title: "p8105 Homework 1"
+author: "Tory Lynch"
+date: "9/21/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tibble)
+library(dplyr)
+```
+
+##Problem 1
+
+**Part 1**
+
+I cannot calculate the mean of each variable because the character and factor variables are not numbers, and therefore cannot be averaged as number. The mean of x is 2.446 and the mean of the logical variable is 0.7, which indicates taht x is greater than 2 in 70% of the runs. 
+
+```{r}
+set.seed(1234)
+
+#Create dataframe 
+problem_one_df <- tibble(
+  x = runif(n = 10, min = 0, max = 5),
+  prob_one_logical = ifelse(x > 2, TRUE, FALSE),
+  prob_one_character = c("data", "science", "home", "work", "number", "one", "friday", "september", "21", "2018"),
+  prob_one_factor = factor(c("fall", "winter", "spring", "summer", "fall", "fall", "winter", "winter", "fall", "summer"))
+) 
+
+#Show dataframe table
+problem_one_df
+
+#Find mean for each column. 
+  #colMeans(problem_one_df) - commented out so that the chunk can run smoothly. 
+  colMeans(problem_one_df[1:2])
+
+```
+
