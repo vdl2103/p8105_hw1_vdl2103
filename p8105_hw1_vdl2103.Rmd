@@ -54,3 +54,16 @@ means_table <-colMeans(problem_one_df)
 problem_one_df
 
 ```
+
+**Part 3**
+
+The converted factor variable (factor --> character --> numeric) is the same as in part 2 in that each level of the factor (i.e. each season) is assigned the same numeric value. The converted character variable differs from that in part 2 because the two character values that were numbers are converted into factors; so, instead of the values being "21" and "2018", they are converted to 1 and 2, respectivley, becasue they are categorized as two different factors. The rest of the character values (the words) remain as NAs. 
+
+```{r}
+
+new_numeric_one <-  as.numeric(as.factor(problem_one_df$prob_one_character))
+new_numeric_one
+
+new_numeric_two <- as.numeric(as.character(problem_one_df$prob_one_factor))
+new_numeric_two
+```
