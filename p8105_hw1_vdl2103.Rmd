@@ -67,3 +67,31 @@ new_numeric_one
 new_numeric_two <- as.numeric(as.character(problem_one_df$prob_one_factor))
 new_numeric_two
 ```
+
+##Problem 2
+
+**Part 1**
+
+This dataset has 5,000 observations (5 variables x 1000 runs). The mean of x is -0.0266 and the median of x is -0.0398. X + Y is greater than 0 in 0.498, or 49.8%, of the cases. 
+
+```{r}
+set.seed(1234)
+
+#Create the dataframe with five variables 
+problem_two_df <- tibble(
+  x = rnorm(1000),
+  y = rnorm(1000),
+  prob_two_logical = ifelse(x + y > 0, TRUE, FALSE), 
+  prob_two_numeric = as.numeric(prob_two_logical),
+  prob_two_factor = as.factor(prob_two_logical)
+)
+
+#Show dataframe table 
+problem_two_df
+
+#Determine the size of the dataset, the mean and median of the x variable, and the proportion of cases where x+y > 0 
+dim(problem_two_df)
+mean(problem_two_df$x)
+median(problem_two_df$x)
+mean(problem_two_df$prob_two_numeric)
+```
