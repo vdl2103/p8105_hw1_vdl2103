@@ -38,3 +38,19 @@ problem_one_df
 
 ```
 
+**Part 2**
+
+I am now able to calculate the mean of the factor variable after converting it into a numeric variable; each factor was assigned a numeric value (1 = fall, 2 = spring etc.) and the average is 2.4. This value is not helpful for interpretation, since the numbers were not assigned in "order" of the seasons (i.e. fall is 1 and winter is 4). The non-number character variables were assigned as "NAs" so while I cannot calculate a mean value for them, they do not inhibit the code and are assigned "NA" in the table of means. The means of x and the logical variable are unchanged. 
+
+```{r}
+
+#Convert character, factor, and logical variables to numeric variables 
+problem_one_df <- problem_one_df %>% mutate_all(funs(as.numeric))
+
+#Find mean for each column as numerical variables 
+means_table <-colMeans(problem_one_df)
+
+#Show dataframe table with converted variables
+problem_one_df
+
+```
