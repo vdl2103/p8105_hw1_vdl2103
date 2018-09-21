@@ -95,3 +95,26 @@ mean(problem_two_df$x)
 median(problem_two_df$x)
 mean(problem_two_df$prob_two_numeric)
 ```
+
+**Part 2**
+
+The scatterplot for the numeric variable includes a color scale because numeric variables are assumed to be continuous; the color scale could indicate where the values fall between 0 and 1, for example. The color scale is unncessary in this scatterplot because while the variable is numeric, and techincally continous, in reality it is a binary variable. Only two colors are present because each observation has a value of either 0 (dark blue) or 1 (light blue).  
+
+The scaterplot for the factor variable has a color scale that is identical to the scatterplot for the logical variable. This makes sense given that the logical and factor variables represent the same information. If x + y is greater than 0, both the factor and logical variables equal "True". 
+
+```{r pressure, echo=FALSE}
+
+#Plot 1: Scatterplot of x and y by logical variable 
+plot_logical <- ggplot(problem_two_df, aes(x = x, y = y, color = prob_two_logical)) + geom_point() + scale_color_discrete(name = "Logical Variable", labels = c("x + y < 0", "x + y > 0"))
+
+#Plot 2: Scatterplot of x and y by logical variable 
+plot_numeric <- ggplot(problem_two_df, aes(x = x, y = y, color = prob_two_numeric)) + geom_point() + scale_color_continuous(name = "Numeric Variable")
+
+#Plot 3: Scatterplot of x and y by logical variable 
+plot_factor <- ggplot(problem_two_df, aes(x = x, y = y, color = prob_two_factor)) + geom_point() + scale_color_discrete(name = "Factor Variable", labels = c("False: x + y < 0", "True: x + y > 0"))
+
+plot_logical
+plot_numeric
+plot_logical
+
+```
